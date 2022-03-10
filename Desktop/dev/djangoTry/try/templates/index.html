@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="container">
+    <h1 class="text-lg text-center">
+        Todo List
+    </h1>
+    <a href="{% url 'try:create' %}">追加</a>
+    <div class="flex flex-col">
+        {% for todo in todo_list%}
+        <div class="flex">
+            {{todo.title}}
+            {{todo.content}}
+        </div>
+        {% empty %}
+            <p>空です</p>
+        {% endfor %}
+    </div>
+</main>
+{%endblock%}
